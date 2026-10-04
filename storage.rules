@@ -1,0 +1,63 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isSmallFile(maxSizeMB) {
+      return request.resource.size < maxSizeMB * 1024 * 1024;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        firestore.exists(/databases/(default)/documents/users/$(request.auth.uid)) &&
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // ============================================================
+    // 1. Profile Images: profile_images/{userId}.jpg
+    // ============================================================
+    match /profile_images/{userId}.jpg {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) && isImage() && isSmallFile(5);
+    }
+
+    match /profile_images/{userId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) && isImage() && isSmallFile(5);
+    }
+
+    // ============================================================
+    // 2. Complaint Images: complaint_images/{userId}/{fileName}
+    // ============================================================
+    match /complaint_images/{userId}/{fileName} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow write: if isOwner(userId) && isImage() && isSmallFile(10);
+    }
+
+    // ============================================================
+    // 3. Notice & Scheme Images: Admin only upload
+    // ============================================================
+    match /notice_images/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() && isImage() && isSmallFile(10);
+    }
+
+    match /scheme_images/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() && isImage() && isSmallFile(10);
+    }
+
+  }
+}

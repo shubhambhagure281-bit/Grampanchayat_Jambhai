@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Header & Taglines -->
+    <string name="app_name">ग्रामपंचायत जांभई</string>
+    <string name="app_subtitle">डिजिटल ग्रामपंचायत सेवा व नागरिक पोर्टल</string>
+    <string name="welcome_title">ग्रामपंचायत जांभई मध्ये आपले सहर्ष स्वागत आहे</string>
+    <string name="panchayat_tagline">लोकसहभाग, पारदर्शकता आणि डिजिटल सेवा</string>
+    <string name="splash_tagline">आपल्या गावासाठी | आपल्या सेवेसाठी</string>
+    <string name="namaskar_greeting">नमस्कार!</string>
+    <string name="welcome_citizen_portal">ग्रामपंचायत जांभई पोर्टलवर आपले स्वागत आहे</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">मुख्य पृष्ठ</string>
+    <string name="nav_notices">सूचना फलक</string>
+    <string name="nav_services">सेवा व दाखले</string>
+    <string name="nav_complaints">तक्रारी</string>
+    <string name="nav_profile">माझे प्रोफाइल</string>
+
+    <!-- Dashboard Grid Items -->
+    <string name="menu_gram_info">ग्रामपंचायत माहिती</string>
+    <string name="menu_services">नागरिक सेवा</string>
+    <string name="menu_new_complaint">तक्रार नोंदणी</string>
+    <string name="menu_my_complaints">माझ्या तक्रारी</string>
+    <string name="menu_notices">सूचना फलक</string>
+    <string name="menu_schemes">शासकीय योजना</string>
+    <string name="menu_contact">संपर्क व मदत</string>
+    <string name="members_title">ग्रामपंचायत पदाधिकारी व सदस्य</string>
+    <string name="feature_coming_soon">ही सुविधा लवकरच उपलब्ध होत आहे!</string>
+
+    <!-- Home Screen -->
+    <string name="sarpanch_message_title">सरपंच संदेश</string>
+    <string name="sarpanch_message">ग्रामपंचायत जांभईच्या डिजिटल उपक्रमात आपले स्वागत आहे. नागरिक केंद्रीत सेवा, पारदर्शक कारभार आणि गावाचा सर्वांगीण विकास हेच आमचे ध्येय आहे.</string>
+    <string name="quick_services">त्वरित नागरिक सेवा</string>
+    <string name="latest_announcements">नवीनतम घोषणा व सूचना</string>
+    <string name="gram_info">ग्राम माहिती व आकडेवारी</string>
+    <string name="population_label">लोकसंख्या:</string>
+    <string name="population_val">~५,५०० नागरिक</string>
+    <string name="taluka_label">तालुका/जिल्हा:</string>
+    <string name="taluka_val">जांभई परिसर</string>
+    <string name="wards_label">प्रभाग संख्या:</string>
+    <string name="wards_val">६ प्रभाग</string>
+
+    <!-- Notices Screen -->
+    <string name="notices_title">शासकीय व ग्रामपंचायत सूचना</string>
+    <string name="search_notices_hint">सूचना शोधा...</string>
+    <string name="no_notices">सध्या कोणत्याही नवीन सूचना उपलब्ध नाहीत.</string>
+    <string name="notice_date_label">दिनांक:</string>
+
+    <!-- Services Screen -->
+    <string name="services_title">ग्रामपंचायत सेवा व दाखले</string>
+    <string name="birth_certificate">जन्म दाखला अर्ज</string>
+    <string name="birth_certificate_desc">जन्म नोंदणी व दाखल्यासाठी ऑनलाईन अर्ज</string>
+    <string name="death_certificate">मृत्यू दाखला अर्ज</string>
+    <string name="death_certificate_desc">मृत्यू नोंदणी व दाखल्यासाठी अर्ज</string>
+    <string name="tax_payment">घरपट्टी व पाणीपट्टी कर भरणा</string>
+    <string name="tax_payment_desc">वार्षिक कर आकारणी व थकबाकी ऑनलाईन तपासा</string>
+    <string name="no_dues_certificate">ना हरकत प्रमाणपत्र (NOC)</string>
+    <string name="no_dues_certificate_desc">वीज कनेक्शन व इतर कामांसाठी NOC अर्ज</string>
+    <string name="apply_now">अर्ज करा</string>
+
+    <!-- Complaints Screen -->
+    <string name="complaints_title">तक्रार व निवारण मंच</string>
+    <string name="submit_complaint">नवीन तक्रार नोंदवा</string>
+    <string name="complaint_subject_hint">तक्रारीचा विषय प्रविष्ट करा</string>
+    <string name="complaint_desc_hint">तक्रारीचे सविस्तर वर्णन लिहा...</string>
+
+    <!-- Profile & Auth Screen -->
+    <string name="profile_title">माझे प्रोफाइल</string>
+    <string name="login_title">नागरिक लॉगिन</string>
+    <string name="login_subtitle">तुमचा ईमेल किंवा मोबाईल नंबर आणि पासवर्ड टाका</string>
+    <string name="register_title">नवीन नागरिक नोंदणी</string>
+    <string name="register_subtitle">ग्रामपंचायत सेवा वापरण्यासाठी खालील माहिती भरा</string>
+    <string name="full_name_hint">पूर्ण नाव (उदा. राजेश पाटील)</string>
+    <string name="phone_number_hint">१० अंकी मोबाईल नंबर</string>
+    <string name="email_hint">ईमेल पत्ता (उदा. citizen@gmail.com)</string>
+    <string name="password_hint">पासवर्ड (किमान ६ अक्षरे)</string>
+    <string name="confirm_password_hint">पासवर्ड पुन्हा प्रविष्ट करा</string>
+    <string name="address_hint">रहवासी पत्ता / घर क्रमांक</string>
+    <string name="forgot_password">पासवर्ड विसरलात?</string>
+    <string name="register_now">नवीन खाते तयार करा (नोंदणी)</string>
+    <string name="already_have_account">माझे आधीच खाते आहे? लॉगिन करा</string>
+    <string name="login_as_citizen">नागरिक म्हणून लॉगिन</string>
+    <string name="login_as_admin">प्रशासन लॉगिन (सरपंच/ग्रामसेवक)</string>
+
+    <!-- Validation Error Strings -->
+    <string name="err_name_required">कृपया पूर्ण नाव प्रविष्ट करा.</string>
+    <string name="err_mobile_invalid">कृपया वैध १० अंकी मोबाईल नंबर प्रविष्ट करा.</string>
+    <string name="err_email_invalid">कृपया वैध ईमेल पत्ता प्रविष्ट करा.</string>
+    <string name="err_password_short">पासवर्ड किमान ६ अक्षरांचा असावा.</string>
+    <string name="err_password_mismatch">पासवर्ड जुळत नाही, कृपया पुन्हा तपासा.</string>
+    <string name="err_address_required">कृपया राहण्याचा पत्ता प्रविष्ट करा.</string>
+    <string name="reset_password_sent">पासवर्ड रीसेटची लिंक तुमच्या ईमेलवर पाठवण्यात आली आहे.</string>
+
+    <!-- Status Labels -->
+    <string name="status_pending">प्रलंबित (Pending)</string>
+    <string name="status_resolved">मार्गी लागली (Resolved)</string>
+    <string name="status_rejected">नाकारली (Rejected)</string>
+
+    <!-- Common UI Actions & Hints -->
+    <string name="submit_button">सादर करा</string>
+    <string name="cancel_button">रद्द करा</string>
+    <string name="login">लॉगिन</string>
+    <string name="logout">लॉगआउट</string>
+    <string name="citizen">नागरिक</string>
+    <string name="admin">प्रशासन</string>
+    <string name="loading">लोड होत आहे...</string>
+    <string name="error_occurred">त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा.</string>
+    <string name="success_submitted">तक्रार यशस्वीरित्या नोंदवली गेली आहे!</string>
+    <string name="contact_us">संपर्क व मदत</string>
+    <string name="phone_label">फोन: +९१ ९८७६५४३२१०</string>
+    <string name="email_label">ईमेल: grampanchayat.jambhai@gov.in</string>
+</resources>

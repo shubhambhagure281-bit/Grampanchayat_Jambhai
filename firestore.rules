@@ -1,0 +1,109 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        getUserData().role == 'admin';
+    }
+
+    // ============================================================
+    // 1. Users Collection: users/{userId}
+    // ============================================================
+    match /users/{userId} {
+      // User can read their own profile; Admin can read any profile
+      allow read: if isOwner(userId) || isAdmin();
+
+      // User creation: Must match auth UID and cannot self-assign "admin" role
+      allow create: if isOwner(userId) &&
+        (!('role' in request.resource.data) || request.resource.data.role == 'user');
+
+      // User update: Can update fields but CANNOT change role unless caller is Admin
+      allow update: if isOwner(userId) &&
+        (request.resource.data.role == resource.data.role || isAdmin());
+
+      // Admin full access
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // 2. Complaints Collection: complaints/{complaintId}
+    // ============================================================
+    match /complaints/{complaintId} {
+      // User can read only their own complaints; Admin can read all
+      allow read: if (isAuthenticated() && resource.data.userId == request.auth.uid) || isAdmin();
+
+      // User creation: Must be owner and status must be "प्रलंबित"
+      allow create: if isAuthenticated() &&
+        request.resource.data.userId == request.auth.uid &&
+        (request.resource.data.status == 'प्रलंबित' || !('status' in request.resource.data));
+
+      // Updates: ONLY Admins can update complaint status or fields
+      allow update: if isAdmin();
+
+      // Deletes: ONLY Admins can delete complaints
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // 3. Notices Collection: notices/{noticeId}
+    // ============================================================
+    match /notices/{noticeId} {
+      // Anyone authenticated can read notices
+      allow read: if isAuthenticated();
+
+      // Only Admin can create, update, or delete notices
+      allow write: if isAdmin();
+    }
+
+    // ============================================================
+    // 4. Schemes Collection: schemes/{schemeId}
+    // ============================================================
+    match /schemes/{schemeId} {
+      // Anyone authenticated can read schemes
+      allow read: if isAuthenticated();
+
+      // Only Admin can create, update, or delete schemes
+      allow write: if isAdmin();
+    }
+
+    // ============================================================
+    // 5. Panchayat Info Collection: panchayat/{docId}
+    // ============================================================
+    match /panchayat/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ============================================================
+    // 6. Members Collection: members/{memberId}
+    // ============================================================
+    match /members/{memberId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ============================================================
+    // 7. Notifications Collection: notifications/{notificationId}
+    // ============================================================
+    match /notifications/{notificationId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow write: if isAdmin();
+    }
+
+  }
+}

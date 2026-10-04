@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardDignitary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E2E8E3"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Circular/Rounded Photo Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            app:cardCornerRadius="43dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
+            app:strokeColor="#EAF5EC"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:id="@+id/ivPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="प्रमुख पदाधिकारी फोटो"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_dignitary_placeholder" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Official Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="मा. श्री. देवेंद्र फडणवीस"
+            android:textColor="#1A1C1A"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Designation -->
+        <TextView
+            android:id="@+id/tvDesignation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="मुख्यमंत्री, महाराष्ट्र राज्य"
+            android:textColor="#176B2C"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Jurisdiction Location -->
+        <TextView
+            android:id="@+id/tvJurisdiction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="महाराष्ट्र राज्य"
+            android:textColor="#616161"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
